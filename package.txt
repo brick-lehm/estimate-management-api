@@ -1,0 +1,48 @@
+root
+├──application (アプリケーション層)
+│   ├── accesslevel（アプリケーションサービスの実態）
+│   │   │   ├── list（リスト取得）
+│   │   │   ├── read（読み込み）
+│   │   │   └── write（書き込み）
+│   │   ├── adapter（プレゼンテーション層との緩衝材）
+│   │   │   ├── factory (モデルファクトリの抽象化)
+│   │   │   ├── in（ユースケースの抽象化）
+│   │   │   │     └── importer (プレゼンテーション層とアプリケーション層との緩衝材-外部入力)
+│   │   │   │     └── validator (ユースケースバリデーション)
+│   │   │   │     └── input（ユースケースの入力用DTO）
+│   │   │   └── out（リポジトリの抽象化）
+│   │   │        └── exporter (プレゼンテーション層とアプリケーション層との緩衝材-外部出力)
+│   │   │        └── output（ユースケースの出力用DTO）
+│   └── sharedservice（サービス間で使いたいサービスの実態）
+├── domain
+│   ├── model（値オブジェクトなどを格納したオブジェクト）
+│   │   ├── value（値オブジェクトや区分オブジェクト）
+│   │   ├── entity (エンティティオブジェクト）
+│   └── service（ドメインサービスの抽象化）
+│         ├── interfaces（抽象化されたドメインサービス）
+│         └── adapter（各層との緩衝材）
+│             ├── factory（モデルファクトリの実態）
+│             ├── in（ユースケースの抽象化）
+│             │   ├── validator (ドメインに関するバリデーション)
+│             │   └── input（ドメインサービスの入力用DTO）
+│             └── out（リポジトリの抽象化）
+│                 └──  output（ドメインサービスの出力用DTO）
+├── infrastructure
+│   ├── <機能カテゴリ:集約名>
+│   │       ├── repository.java（データの保存先・状態管理手段）
+│   │       ├── <プロファイル名>
+│   │       └── interfaces
+│   │            ├── dto       （Data Transfer Object）
+│   │            ├── adapter   （ドメインデータ加工層）
+│   │            ├── strategy  （技術的な手段の切り替）
+│   │            └── dto-mapper（変換）
+│   └── shared
+│       └── client
+│            └── <SDKやAPIなど>
+│                 ├── request
+│                 ├── response
+│                 └── client-mapper
+└── presentation
+    ├── controller
+    ├── security (認証関連やCSRFトークンなどの処理）
+    └── interceptor（コントローラー共通処理）
