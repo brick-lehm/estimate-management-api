@@ -14,7 +14,6 @@ import dev.cost.management.estimatemanagementapi.domain.service.adapter.in.input
 import dev.cost.management.estimatemanagementapi.domain.service.adapter.in.input.EditLineActions;
 import dev.cost.management.estimatemanagementapi.domain.service.adapter.in.input.IssueEstimateContext;
 import java.util.UUID;
-import java.util.concurrent.atomic.AtomicReference;
 import org.springframework.stereotype.Component;
 
 /**
