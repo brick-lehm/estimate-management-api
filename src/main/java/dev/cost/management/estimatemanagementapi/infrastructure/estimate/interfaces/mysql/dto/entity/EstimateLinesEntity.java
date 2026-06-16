@@ -1,0 +1,24 @@
+package dev.cost.management.estimatemanagementapi.infrastructure.estimate.interfaces.mysql.dto.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "estimate_lines")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class EstimateLinesEntity {
+
+  @Id
+  @Column(name = "estimate_id", nullable = false, length = 255)
+  private String estimateId;
+
+  @Column(name = "line_tax_class_policy", nullable = false, length = 255)
+  private String line_tax_class_policy;
+}
